@@ -19,7 +19,6 @@ public class MainActivity extends AppCompatActivity {
     EditText editnum2;
     TextView result;
 
-    //int position;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -52,47 +51,50 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+
+
+
     }
     void btnx(int position)
     {
 
-        btn.setOnClickListener(new View.OnClickListener() {
 
-            public void onClick(View v) {
-                result.setVisibility(View.VISIBLE);
-                String value = editnum1.getText().toString();
-                String value2 = editnum2.getText().toString();
-                double a = Double.parseDouble(value);
-                double b = Double.parseDouble(value2);
-                if(value.isEmpty()||value2.isEmpty())
-                {
-                    result.setText("Number Fields Can Not be Empty");
+            btn.setOnClickListener(new View.OnClickListener() {
+
+
+                public void onClick(View v) {
+                    if(editnum1.getText().toString().isEmpty()||editnum2.getText().toString().isEmpty())
+                    { result.setText("Number Fields Can Not be Empty");}
+                    else {
+                        result.setVisibility(View.VISIBLE);
+                        String value = editnum1.getText().toString();
+                        String value2 = editnum2.getText().toString();
+                        double a = Double.parseDouble(value);
+                        double b = Double.parseDouble(value2);
+
+
+                        if (position == 0) {
+                            double r = a + b;
+                            result.setText(String.format("Answer= %.2f", r));
+                        }
+                        if (position == 1) {
+                            double r = a - b;
+                            result.setText(String.format("Answer= %.2f", r));
+                        }
+                        if (position == 2) {
+                            double r = a * b;
+                            result.setText(String.format("Answer= %.2f", r));
+                        }
+                        if (position == 3) {
+                            double r = a / b;
+                            result.setText(String.format("Answer= %.2f", r));
+                        }
+                    }
+
+
                 }
+            });
 
-                else {
-
-
-                    if (position == 0) {
-                        double r = a + b;
-                        result.setText(String.format("Answer= %.2f", r));
-                    }
-                    if (position == 1) {
-                        double r = a - b;
-                        result.setText(String.format("Answer= %.2f", r));
-                    }
-                    if (position == 2) {
-                        double r = a * b;
-                        result.setText(String.format("Answer= %.2f", r));
-                    }
-                    if (position == 3) {
-                        double r = a / b;
-                        result.setText(String.format("Answer= %.2f", r));
-                    }
-                }
-
-
-            }
-        });
     }
 }
 
