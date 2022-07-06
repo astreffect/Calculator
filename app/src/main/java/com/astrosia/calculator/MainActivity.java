@@ -64,23 +64,30 @@ public class MainActivity extends AppCompatActivity {
                 String value2 = editnum2.getText().toString();
                 double a = Double.parseDouble(value);
                 double b = Double.parseDouble(value2);
+                if(value.isEmpty()||value2.isEmpty())
+                {
+                    result.setText("Number Fields Can Not be Empty");
+                }
+
+                else {
 
 
-                if (position == 0) {
-                    double r = a + b;
-                    result.setText(String.format("Answer= %.2f", r));
-                }
-                if (position == 1) {
-                    double r = a - b;
-                    result.setText(String.format("Answer= %.2f", r));
-                }
-                if (position == 2) {
-                    double r = a * b;
-                    result.setText(String.format("Answer= %.2f", r));
-                }
-                if (position == 3) {
-                    double r = a / b;
-                    result.setText(String.format("Answer= %.2f", r));
+                    if (position == 0) {
+                        double r = a + b;
+                        result.setText(String.format("Answer= %.2f", r));
+                    }
+                    if (position == 1) {
+                        double r = a - b;
+                        result.setText(String.format("Answer= %.2f", r));
+                    }
+                    if (position == 2) {
+                        double r = a * b;
+                        result.setText(String.format("Answer= %.2f", r));
+                    }
+                    if (position == 3) {
+                        double r = a / b;
+                        result.setText(String.format("Answer= %.2f", r));
+                    }
                 }
 
 
